@@ -1,1 +1,18 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="mycontent">
+    <ion-content>
+      <ion-list inset>
+          <ion-list-header style="font-size:30px;">
+              Select category
+            </ion-list-header>
+        <button ion-item menuClose (click)="gotolist(category.key1)" style="color:green;" *ngFor="let category of categories">
+
+{{category['key1']}}
+
+        </button>
+        <ion-item menuClose detail-none>Close Menu</ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+
+      <ion-nav #mycontent  [root]="rootPage"></ion-nav>

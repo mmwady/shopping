@@ -1,14 +1,41 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
+<ion-header clear>
+    <ion-toolbar text-center color="secondary">
+        <ion-title>
+      <button ion-button float-left  clear menuToggle>
+        <ion-icon style="font-size: 35px;"  name="menu"></ion-icon>
+      </button>
+      Products List
+      <ion-icon  style="font-size: 35px;color: white;margin-right: 5px;" name="cart" float-right (click)="gotolist()"	></ion-icon>
     </ion-title>
-  </ion-navbar>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content ios padding>
+  
+
+<div style="width: 100%;text-align: center">
+  <img style="width: 50%" src='assets/imgs/logo1.png' >
+</div>
+<br>
+<br>
+  <ion-list ios>
+   
+    <ion-item *ngFor="let product of products" ios>
+      <ion-thumbnail item-start>
+        <img [src]="product['images']['list']['100']">
+      </ion-thumbnail>
+      <div>
+      <h2 style="margin-top:10px">{{product['name']}}</h2>
+    </div>
+    <p>{{product['prices']['price']}}</p>
+
+      <button  color="secondary" (click)="showConfirm(product)" ion-button clear item-end>Add</button>
+    </ion-item>
+
+  </ion-list>
+
+  <button ion-button full clear color="secondary" (click)="loadMore()">Load more</button>
+
+
+
 </ion-content>

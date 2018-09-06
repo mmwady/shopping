@@ -1,0 +1,42 @@
+<!--
+  Generated template for the Category3ListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar  text-center color="secondary">
+        <ion-title>
+  
+            Products List
+            <ion-icon  style="font-size: 35px;color: white;margin-right: 5px;" name="cart" float-right (click)="gotolist()"	></ion-icon>
+          </ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <div style="width: 100%;text-align: center">
+        <img style="width: 50%" src='assets/imgs/logo1.png' >
+      </div>
+      <br>
+      <br>
+        <ion-list ios>
+         
+          <ion-item *ngFor="let product of products" ios>
+            <ion-thumbnail item-start>
+              <img [src]="product['images']['list']['100']">
+            </ion-thumbnail>
+            <div>
+            <h2 style="margin-top:10px">{{product['name']}}</h2>
+          </div>
+          <p>{{product['prices']['price']}}</p>
+      
+            <button  color="secondary" ion-button clear (click)="showConfirm(product)"  item-end>Add</button>
+          </ion-item>
+        </ion-list>
+
+        <button ion-button full clear color="secondary" (click)="loadMore()">Load more</button>
+</ion-content>
